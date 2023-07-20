@@ -1,0 +1,40 @@
+.catalog {
+  &__breadcrumbs {
+  }
+}
+.breadcrumbs {
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: rem(2);
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: rem(10);
+      &::after {
+        content: '/';
+        font-weight: 400;
+        margin-left: rem(10);
+      }
+    }
+  }
+
+  &__link {
+    font-weight: 400;
+    font-size: rem(13);
+    border-bottom: 1px dashed transparent;
+    transition: border-color 0.32s ease-in-out;
+
+    @media (any-hover: hover) {
+      &:hover {
+        border-bottom-color: #000;
+      }
+    }
+    &:focus {
+      outline: none;
+      border-bottom-color: #000;
+    }
+  }
+}
