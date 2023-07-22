@@ -113,16 +113,30 @@
 
   &__content {
     .spollers {
+      gap: 0;
       &__title {
         padding: rem(12) rem(0);
         background-color: transparent;
         border-bottom: 1px solid #d9d9d9;
         border-radius: 0;
 
+        ._hidden {
+          opacity: 0;
+          transition: opacity 0.32s ease-in-out;
+        }
+
         &._spoller-active {
           background-color: transparent;
           border-bottom-color: transparent;
           color: #000;
+
+          ._hidden {
+            opacity: 1;
+          }
+
+          + .spollers__body {
+            border-bottom-color: #d9d9d9;
+          }
         }
 
         &::before {
@@ -145,7 +159,13 @@
 
       &__body {
         padding-left: 0;
-        padding-top: rem(12);
+        padding-top: rem(6);
+        padding-bottom: rem(12);
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.32s ease-in-out;
+
+        ._spoller-active & {
+        }
       }
     }
 
